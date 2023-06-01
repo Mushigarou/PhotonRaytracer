@@ -11,12 +11,13 @@ typedef struct s_sphere
 	int			color;
 }	t_sphere;
 
-typedef struct s_nvec
+typedef struct s_3d
 {
 	double		x;
 	double		y;
 	double		z;
-}	t_nvec;
+}	t_vec,	t_point; //n9iya had l3ayba
+
 
 typedef struct s_cylinder
 {
@@ -25,7 +26,7 @@ typedef struct s_cylinder
 	double		z;
 	double		diam;
 	double		height;
-	t_nvec		*nvec;
+	t_vec		*nvec;
 	int			color;
 }	t_cylinder;
 

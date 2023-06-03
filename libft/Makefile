@@ -17,23 +17,23 @@ ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
 ft_lstadd_front.c ft_lstnew.c ft_lstlast.c ft_lstsize.c ft_lstadd_back.c \
 ft_lstmap.c ft_lstiter.c ft_lstclear.c ft_lstdelone.c get_next_line.c get_next_line_utils.c 
 
+OBJS = $(patsubst %, obj/%, $(SRCS:.c=.o))
 
-
-OBJS = $(SRCS:.c=.o)
-
-all:$(NAME)
-
-%.o:%.c libft.h get_next_line.h
-	@$(CC) $(CFLAGS) -c $<
+all : $(NAME)
 
 $(NAME):$(OBJS)
 	@ar cr $(NAME) $(OBJS)
 
-clean:
-	@rm -f $(OBJS) 
+obj/%.o : %.c libft.h get_next_line.h
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-fclean: clean
-	@rm -f $(NAME)
+
+clean :
+	@rm -rf obj
+
+fclean : clean
+	@rm -rf $(NAME)
 
 re: fclean all
 

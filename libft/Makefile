@@ -24,16 +24,16 @@ OBJS = $(SRCS:.c=.o)
 all:$(NAME)
 
 %.o:%.c libft.h get_next_line.h
-	$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $<
 
 $(NAME):$(OBJS)
-	ar cr $(NAME) $(OBJS)
+	@ar cr $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) 
+	@rm -f $(OBJS) 
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 

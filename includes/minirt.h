@@ -10,7 +10,32 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
+/* ************************************************************************** */
+/*									DATA									  */
+/* ************************************************************************** */
 
+// *	The whole given scene	* //
+typedef struct	s_scene{
+	t_cylinder	*cylinders;
+	t_sphere	*spheres;
 
+	//	TODO: Pointer to a linked list of type plane to be added
+	// t_plane		*plane;
+	// t_camera		*camera;
+	// t_ambient	*ambiance_light;
+	// t_light		*light;
+
+}	t_scene;
+
+// *	General data	* //
+typedef struct	s_data{
+	
+	// storing fd of openned file
+	int		fd;
+	
+	// points to all object of the the scene
+	t_scene		*scene;
+
+}	t_data;
 
 #endif

@@ -1,22 +1,32 @@
+#include "../includes/rt_parser.h"
 #include "../includes/minirt.h"
 
-// *	Return type of the object
-int	object_type(char *first_keyword)
+
+
+void	objparse(t_data *data, char *line)
 {
-	// TODO : Freeing double pointer `s` before each return()
-	char **const s = ft_split(first_keyword, ' ');
-	if (!first_keyword)
-		return (ERROR);
-	if(ft_strncmp(s[0], "sp", 2))
-		return(SPHERE);
-	if(ft_strncmp(s[0], "cy", 2))
-		return(CYLINDER);
-	return(ERROR);
+	char **const s = ft_split(line, ' ');
+	// puts(line);
+	if(!ft_strncmp(s[0], "C", 1))
+		return(parsecam(data, s), (void)0);
+	if(!ft_strncmp(s[0], "A", 1) || !ft_strncmp(s[0], "L", 1))
+		return(parselight(data, s), (void)0);
+	if(!ft_strncmp(s[0], "sp", 2))
+		return(parsesp(data, s), (void)0);
+	if(!ft_strncmp(s[0], "cy", 2))
+		return(parsecy(data, s), (void)0);
 }
 
-// *	Check for errors in the given file.rt parameter
-void	parse_file(t_data *data)
+void	rt_parsing(t_data *data, int fd)
 {
-	(void)data;
-	return ;
+	char *line;
+	
+	line  = get_next_line(fd);
+	while(line)
+	{
+		while(!*line)
+			line = get_next_line(fd);
+		objparse(data, line);
+		line  = get_next_line(fd);
+	}
 }

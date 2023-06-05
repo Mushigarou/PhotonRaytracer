@@ -20,6 +20,7 @@ int checkfile(char *file)
 	return (open(file, O_RDONLY));
 }
 
+// Initilizes mlx params;
 void initdata(t_data *data)
 {
 	data->amlight = NULL;
@@ -27,13 +28,14 @@ void initdata(t_data *data)
 	data->cyl = NULL;
 	data->sph = NULL;
 	data->lights = NULL;
-	// initilize mlx params;
 }
 
 void printdata(t_data *data)
 {
-	printf("C %f,%f,%f  %f,%f,%f    %d\n", data->cam->center.x, data->cam->center.y, data->cam->center.z, data->cam->nvec.x, data->cam->nvec.y, data->cam->nvec.z, data->cam->FOV);
-	printf("A %f   %d\n", data->amlight->range, data->amlight->color);
+	if (data->cam)
+		printf("C %f,%f,%f  %f,%f,%f    %d\n", data->cam->center.x, data->cam->center.y, data->cam->center.z, data->cam->nvec.x, data->cam->nvec.y, data->cam->nvec.z, data->cam->FOV);
+	if (data->amlight)
+		printf("A %f   %d\n", data->amlight->range, data->amlight->color);
 	while (data->cyl)
 	{
 		printf("cy   %f,%f,%f   %f,%f,%f  %f  %f  %d\n", data->cyl->center.x, data->cyl->center.y, data->cyl->center.z, data->cyl->nvec.x, data->cyl->nvec.y, data->cyl->nvec.z, data->cyl->diam, data->cyl->height, data->cyl->color);

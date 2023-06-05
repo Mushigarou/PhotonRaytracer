@@ -18,25 +18,25 @@
 // 	*scene = new;
 // }
 
-char *ft_strtok(char *s, char specifier)
-{
-	static char *buffer;
-	char *token;
+// char *ft_strtok(char *s, char specifier)
+// {
+// 	static char *buffer;
+// 	char *token;
 
-	if (!buffer)
-		buffer = s;
-	if (!*buffer)
-		return NULL;
-	token = buffer;
-	while (*buffer && *buffer != specifier)
-		buffer++;
-	while(*buffer == specifier && *buffer)
-	{
-		*buffer = 0;
-		buffer++;
-	}		
-	return(token);
-}
+// 	if (!buffer)
+// 		buffer = s;
+// 	if (!*buffer)
+// 		return NULL;
+// 	token = buffer;
+// 	while (*buffer && *buffer != specifier)
+// 		buffer++;
+// 	while(*buffer == specifier && *buffer)
+// 	{
+// 		*buffer = 0;
+// 		buffer++;
+// 	}		
+// 	return(token);
+// }
 
 void	free_pointers(char **str)
 {

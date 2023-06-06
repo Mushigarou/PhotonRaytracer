@@ -15,6 +15,7 @@ void	add_cylinder_back(t_cylinder **head, t_cylinder *new)
 
 void	parsecy(t_data *data, char **s)
 {
+	// TODO: Freeing the 3 double pointers??
 	char **const coordp = ft_split(s[1], ',');
 	char **const coordv = ft_split(s[2], ',');
 	char **const rgb = ft_split(s[5], ',');

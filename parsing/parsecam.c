@@ -5,10 +5,11 @@ void parsecam(t_data *data, char **s)
 	char **const coordp = ft_split(s[1], ",", 1);
 	char **const coordv = ft_split(s[2], ",", 1);
 
-	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (puts("Error parsecam.c"), exit(1), 0);
-	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (puts("Error parsecam.c"), exit(1), 0);
+	(s[4]) && (ft_error("Error : args num parsecam.c\n", 1, 0), 0); 
+	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (ft_error("Error\n", 1, 0), 0);
+	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (ft_error("Error\n", 1, 0), 0);
 	if (data->cam)
-		return (puts("cam is already exist"), exit(1), (void)0);
+		return (ft_error("Error : Double cam\n", 1, 0), (void)0);
 	data->cam = gc(sizeof(t_cam), 1);
 	data->cam->type = CAMERA;
 	data->cam->center = (t_point){
@@ -22,6 +23,4 @@ void parsecam(t_data *data, char **s)
 	data->cam->FOV = ft_atoi(s[3], 0);
   	(coordp[3]) && (ft_error("Error\n", 1, 0), 0);
 	  (coordv[3]) && (ft_error("Error\n", 1, 0), 0);
-	if (s[4])
-		return (puts("num of args invalid"), exit(0), (void)0);
 }

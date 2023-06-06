@@ -40,11 +40,14 @@ void	rt_parsing(t_data *data, int fd)
 
 	line = NULL;
 	i = 0;
+	// TODO: Freeing the pointer in the inner while??
 	while(1)
 	{
 		line  = get_next_line(fd);
 		if (!line)
 			break ;
+		while (!*line)
+			line = get_next_line(fd);
 		objparse(data, line);
 		free(line);
 		i++;

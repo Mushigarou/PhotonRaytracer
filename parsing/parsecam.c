@@ -2,9 +2,11 @@
 
 void parsecam(t_data *data, char **s)
 {
-	char **const coordp = ft_split(s[1], ',');
-	char **const coordv = ft_split(s[2], ',');
+	char **const coordp = ft_split(s[1], ",", 1);
+	char **const coordv = ft_split(s[2], ",", 1);
 
+	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (puts("Error parsecam.c"), exit(1), 0);
+	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (puts("Error parsecam.c"), exit(1), 0);
 	if (data->cam)
 		return (puts("cam is already exist"), exit(1), (void)0);
 	data->cam = gc(sizeof(t_cam), 1);

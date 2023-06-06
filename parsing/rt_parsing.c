@@ -17,6 +17,7 @@
 void	objparse(t_data *data, char *line)
 {
 	// TODO : There are some maps that have an xpm file for texture
+	// TODO :  Check_if_range_is_respected_else_return_error() funtion
 	char **const s = ft_split(line, ' ');
 
 	if (!s || !(*s))
@@ -30,6 +31,7 @@ void	objparse(t_data *data, char *line)
 		return(parsesp(data, s), (void)0);
 	else if (!ft_strncmp(s[0], "cy", 2) && (ft_strlen(s[0]) == 2))
 		return(parsecy(data, s), (void)0);
+	// Check_if_in_range_is_respected_else_return_error(retuned value, specifier);
 	return ;
 }
 

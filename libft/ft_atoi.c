@@ -14,7 +14,7 @@ static void	ft_error(char *error, int status, int opt)
 	exit(status);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str, int mode)
 {
 	int						i;
 	int						n;
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str)
 		result = check;
 		i++;
 	}
-	if (str[i] != '\0')
+	if (str[i] != '\0' || (mode && result > 255) || (!mode && result > 180))
 		ft_error(ERROR_MSG_ATOI, 1, 0);
 	return ((int)result * n);
 }

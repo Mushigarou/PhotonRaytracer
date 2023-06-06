@@ -28,7 +28,7 @@ void	parsesp(t_data *data, char **s)
 		ft_atod(coordp[2])
 	};
 	sp->diam = ft_atod(s[2]);
-	sp->color = (ft_atoi(rgb[0]) << 16) | (ft_atoi(rgb[1]) << 8) | ft_atoi(rgb[2]);
+	sp->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
 	sp->next = NULL;
 	add_sphere_back(&(data->sph), sp);
 }

@@ -1,9 +1,9 @@
 #include"libft.h"
 #include <limits.h>
 
-# ifndef ERROR_MSG
-# define ERROR_MSG "ERROR: Incorect Input\n"
-# endif // FOV_ERROR
+#ifndef ERROR_MSG_ATOI
+# define ERROR_MSG_ATOI "ERROR: Incorect Input ft_atoi.c\n"
+#endif // ERROR_MSG_ATOI
 
 static void	ft_error(char *error, int status, int opt)
 {
@@ -22,7 +22,7 @@ int	ft_atoi(const char *str)
 	int			result;
 
 	if (!str) 
-		ft_error(ERROR_MSG, 1, 0);
+		ft_error(ERROR_MSG_ATOI, 1, 0);
 	i = 0;
 	n = 1;
 	result = 0;
@@ -30,7 +30,7 @@ int	ft_atoi(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			ft_error(ERROR_MSG, 1, 0);
+			ft_error(ERROR_MSG_ATOI, 1, 0);
 		i++;
 	}
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
@@ -42,6 +42,6 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	if (str[i] != '\0')
-		ft_error(ERROR_MSG, 1, 0);
+		ft_error(ERROR_MSG_ATOI, 1, 0);
 	return ((int)result * n);
 }

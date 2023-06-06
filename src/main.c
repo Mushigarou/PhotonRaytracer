@@ -48,7 +48,7 @@ void printdata(t_data *data)
 	}
 	while (data->lights)
 	{
-		printf("HEY\n");
+		// printf("HEY\n");
 		printf("L   %f,%f,%f     %f    %d\n", data->lights->pos.x, data->lights->pos.y, data->lights->pos.z, data->lights->range, data->lights->color);
 		data->lights = data->lights->next;
 	}

@@ -21,6 +21,9 @@ void	parsecy(t_data *data, char **s)
 	char **const rgb = ft_split(s[5], ',');
 	t_cylinder *const cy = gc(sizeof(t_cylinder), 1);
 
+	(rgb[3]) && (ft_error("Error\n", 1, 0), 0);
+	(coordp[3]) && (ft_error("Error\n", 1, 0), 0);
+	(coordv[3]) && (ft_error("Error\n", 1, 0), 0);
 	cy->type = CYLINDER;
 	cy->center = (t_point) {
 		atof(coordp[0]), 

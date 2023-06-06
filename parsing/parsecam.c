@@ -22,6 +22,8 @@ void	parsecam(t_data *data, char **s)
 		atof(coordv[1]), 
 		atof(coordv[2])
 	};
+	(coordp[3]) && (ft_error("Error\n", 1, 0), 0);
+	(coordv[3]) && (ft_error("Error\n", 1, 0), 0);
 	data->cam->FOV = ft_atoi(s[3]);
 	if (s[4])
 		return (puts("num of args invalid"), exit(0), (void)0);

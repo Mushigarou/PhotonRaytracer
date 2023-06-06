@@ -86,7 +86,7 @@ void	parsecy(t_data *data, char **s);
 void	parselight(t_data *data, char **s);
 void	parsesp(t_data *data, char **s);
 void	rt_parsing(t_data *data, int fd);
-void	print_error_and_exit(char *error, char **to_free, int status);
+void	ft_error(char *error, int status, int opt);
 
 #endif
 

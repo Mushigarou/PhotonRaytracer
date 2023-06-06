@@ -38,23 +38,24 @@
 // 	return(token);
 // }
 
-void	free_pointers(char **str)
-{
-	int	i;
+// void	free_pointers(char **str)
+// {
+// 	int	i;
 
-	if (!str || !(*str))
-		return ;
-	i = -1;
-	while (str[++i])
-		free(str[i]);
-	free(str);
-	return ;
-}
+// 	if (!str || !(*str))
+// 		return ;
+// 	i = -1;
+// 	while (str[++i])
+// 		free(str[i]);
+// 	free(str);
+// 	return ;
+// }
 
-void	print_error_and_exit(char *error, char **to_free, int status)
+void	ft_error(char *error, int status, int opt)
 {
-	if (to_free != NULL)
-		free_pointers(to_free);
-	perror(error);
+	if (opt == 1)
+		perror(error);
+	if (opt == 0)
+		write(2, error, ft_strlen(error));
 	exit(status);
 }

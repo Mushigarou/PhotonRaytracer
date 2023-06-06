@@ -18,6 +18,7 @@ void	objparse(t_data *data, char *line)
 {
 	// TODO : There are some maps that have an xpm file for texture
 	char **const s = ft_split(line, ' ');
+
 	if (!s || !(*s))
 		return ;
 	if(!ft_strncmp(s[0], "C", 1) && (ft_strlen(s[0]) == 1))
@@ -29,6 +30,7 @@ void	objparse(t_data *data, char *line)
 		return(parsesp(data, s), (void)0);
 	else if (!ft_strncmp(s[0], "cy", 2) && (ft_strlen(s[0]) == 2))
 		return(parsecy(data, s), (void)0);
+	return ;
 }
 
 void	rt_parsing(t_data *data, int fd)

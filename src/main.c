@@ -59,10 +59,10 @@ int main(int ac, char **av)
 	t_data data;
 
 	if (ac != 2)
-		return (write(2, "Unvalid Args\n", 13), 1);
+		ft_error("Invalid Arguments", 1, 0);
 	fd = checkfile(av[1]);
 	if (fd < 0)
-		return (write(2, "Unvalid file\n", 12), 1);
+		ft_error("Invalid File", 1, 0);
 	initdata(&data);
 	rt_parsing(&data, fd);
 	printdata(&data);

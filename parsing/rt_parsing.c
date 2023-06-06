@@ -8,7 +8,7 @@ void	objparse(t_data *data, char *line)
 	// TODO :  Check_if_range_is_respected_else_return_error() funtion
 	// TODO : 'l', 'p', 'tx'...
 	// TODO : Handle problem of parsing 255,,,,,255,255
-	char **const s = ft_split(line, ' ');
+	char **const s = ft_split(line, " \t", 0);
 
 	if (!s || !(*s))
 		return ;

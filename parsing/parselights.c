@@ -33,7 +33,7 @@ void	parselight(t_data *data, char **s)
 		data->amlight = gc(sizeof(t_light), 1);
 		data->amlight->type = AMBIENT_LIGHT;
 		rgb = ft_split(s[2], ',');
-		data->amlight->color = (ft_atoi(rgb[0]) << 16) | (ft_atoi(rgb[1]) << 8) | ft_atoi(rgb[2]);
+		data->amlight->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
 		return(data->amlight->range = ft_atod(s[1]), (void)0);
 	}
 	else
@@ -50,7 +50,7 @@ void	parselight(t_data *data, char **s)
 		ft_atod(coord[2])
 		};
 		// printf("\n----|%f, %f, %f|-----\n" , light->pos.x, light->pos.y, light->pos.z);
-		light->color = (ft_atoi(rgb[0]) << 15) | (ft_atoi(rgb[1]) << 8) | ft_atoi(rgb[2]);
+		light->color = (ft_atoi(rgb[0], 1) << 15) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
 		light->range = ft_atod(s[2]);
 		light->next = NULL;
 		return(add_light_back(&(data->lights), light));

@@ -1,4 +1,5 @@
 #include"libft.h"
+#include"../includes/minirt.h"
 
 static int	count_words(char *str, char *c)
 {
@@ -31,7 +32,7 @@ char	**ft_split(char const *s, char *c, int mode)
 		while (s[i] && ft_strchr(c, s[i]))
 		{
 			if(mode && ft_strchr(c, s[i]) && ft_strchr(c, s[i + 1]))
-				return(puts("error ft_split"), exit(1), NULL);
+				return(ft_error("Error : ft_split\n", 1, 0), NULL);
 			i++;
 		}
 		j = i;
@@ -41,12 +42,3 @@ char	**ft_split(char const *s, char *c, int mode)
 	}
 	return (p[l] = NULL, p);
 }
-// int main()
-// {
-// 	char **p = ft_split("    hi  ..   ..my  ';   name     is     phobos    ", " ", 0);
-// 	while(*p)
-// 	{
-// 		printf("---\'%s\'---", *p);
-// 		p++;
-// 	}
-// }

@@ -23,7 +23,7 @@ void	objparse(t_data *data, char *line)
 		return(parsecy(data, s), (void)0);
 	// TODO : plane
 	else if (!ft_strncmp(s[0], "pl", 2) && (ft_strlen(s[0]) == 2))
-		return ;
+		return (parsepl(data, s), (void)0);
 	else
 		ft_error("ERROR: Invalid Input rt.parsing.c", 1, 0);
 	return ;

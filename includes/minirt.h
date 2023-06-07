@@ -11,7 +11,7 @@
 # include <fcntl.h>
 
 #ifndef ERROR_MSG
-# define ERROR_MSG "ERROR: Incorect Input\n"
+# define ERROR_MSG "ERROR: incorect Input\n"
 #endif // FOV_ERROR
 
 #endif

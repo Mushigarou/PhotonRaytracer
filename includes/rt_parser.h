@@ -103,5 +103,8 @@ void	parsepl(t_data *data, char **s);
 void	rt_parsing(t_data *data, int fd);
 void	ft_error(char *error, int status, int opt);
 double	ft_atod(char *s);
+void	printdata(t_data *data);
+void	check_ranges(t_data *data);
+
 #endif
 

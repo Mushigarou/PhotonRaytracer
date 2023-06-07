@@ -9,7 +9,7 @@ void parsecam(t_data *data, char **s)
 	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (ft_error("Error\n", 1, 0), 0);
 	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (ft_error("Error\n", 1, 0), 0);
 	if (data->cam)
-		return (ft_error("Error : Double cam\n", 1, 0), (void)0);
+		return (ft_error("Error : double cam parsecam.c\n", 1, 0), (void)0);
 	data->cam = gc(sizeof(t_cam), 1);
 	data->cam->type = CAMERA;
 	data->cam->center = (t_point){
@@ -21,6 +21,6 @@ void parsecam(t_data *data, char **s)
 		ft_atod(coordv[1]),
 		ft_atod(coordv[2])};
 	data->cam->FOV = ft_atoi(s[3], 0);
-  	(coordp[3]) && (ft_error("Error\n", 1, 0), 0);
-	  (coordv[3]) && (ft_error("Error\n", 1, 0), 0);
+  	(coordp[3]) && (ft_error("Error parse_cam.c\n", 1, 0), 0);
+	  (coordv[3]) && (ft_error("Error parse_cam.c\n", 1, 0), 0);
 }

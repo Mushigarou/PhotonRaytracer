@@ -19,6 +19,7 @@ void	parsepl(t_data *data, char **s)
 	char **coordp;
 	char **coordv;
 	char **rgb;
+
 	t_plane *const pl = gc(sizeof(t_cylinder), 1);
 	(ptrlen(s) != 4) && (ft_error("Error : parseplane.c1\n", 1, 0), 0);
 	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (ft_error("Error\n", 1, 0), 0);

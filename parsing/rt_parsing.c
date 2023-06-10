@@ -26,20 +26,15 @@ void	objparse(t_data *data, char *line)
 void	rt_parsing(t_data *data, int fd)
 {
 	char *line;
-	int	i;
 
 	line = NULL;
-	i = 0;
 	while(1)
 	{
 		line  = get_next_line(fd);
 		if (!line)
 			break ;
-		while (!*line)
-			line = get_next_line(fd);
 		objparse(data, line);
 		free(line);
-		i++;
 	}
 	return ;
 }

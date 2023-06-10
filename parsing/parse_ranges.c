@@ -62,6 +62,8 @@ in range [-1, 1] parse_ranges.c"
 
 static void	parse_nvec_ranges(t_vec *nvec)
 {
+	if (!nvec)
+		ft_error(ERROR_NVEC, 1, 0);
 	if ((nvec->x < -1.0 || nvec->x > 1.0) || (nvec->y < -1.0 || nvec->y > 1.0)
 		|| (nvec->z < -1.0 || nvec->z > 1.0))
 		ft_error(ERROR_NVEC, 1, 0);
@@ -91,19 +93,23 @@ void	check_ranges(t_data *data)
 	pl_nvec = data->pl;
 	while (pl_nvec)
 	{
-		parse_nvec_ranges(&pl_nvec->nvec);
+		if (pl_nvec)
+			parse_nvec_ranges(&pl_nvec->nvec);
 		pl_nvec = pl_nvec->next;
 	}
 	cy_nvec = data->cyl;
 	while (cy_nvec)
 	{
-		parse_nvec_ranges(&cy_nvec->nvec);
+		if (cy_nvec)
+			parse_nvec_ranges(&cy_nvec->nvec);
 		cy_nvec = cy_nvec->next;
 	}
-	parse_nvec_ranges(&data->cam->nvec);
-
-	parse_light_ranges(data->lights->range, 0, 0);
-	parse_light_ranges(0, data->amlight->range, 1);
+	if (data->cam)
+		parse_nvec_ranges(&data->cam->nvec);
+	if (data->lights)
+		parse_light_ranges(data->lights->range, 0, 0);
+	if (data->amlight)
+		parse_light_ranges(0, data->amlight->range, 1);
 
 	return ;
 }

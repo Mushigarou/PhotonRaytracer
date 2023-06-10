@@ -40,7 +40,7 @@ void initdata(t_data *data)
 	// TODO : Handle problem of parsing 255,,,,,255,255
 	// TODO: Freeing the 3 double pointers?? parsecy(), parsepl()...
 	// TODO: Freeing the pointer in the inner while?? rt_parsing
-
+	// TODO: Returning an error if map is empty
 */
 
 int main(int ac, char **av)

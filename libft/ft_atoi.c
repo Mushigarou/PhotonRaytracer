@@ -2,8 +2,13 @@
 #include <limits.h>
 
 #ifndef ERROR_MSG_ATOI
-# define ERROR_MSG_ATOI "ERROR: Incorect Input ft_atoi.c\n"
+# define ERROR_MSG_ATOI "ERROR: incorrect Input ft_atoi.c\n"
 #endif // ERROR_MSG_ATOI
+
+#ifndef ERROR_MSG_RANGE
+# define ERROR_MSG_RANGE "ERROR: out of range [ color in range [0, 255] | \
+Camera FOV in range [0, 180] ] ft_atoi.c\n"
+#endif // ERROR_MSG_RANGE
 
 static void	ft_error(char *error, int status, int opt)
 {
@@ -30,7 +35,7 @@ int	ft_atoi(const char *str, int mode)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			ft_error(ERROR_MSG_ATOI, 1, 0);
+			ft_error(ERROR_MSG_RANGE, 1, 0);
 		i++;
 	}
 	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
@@ -42,6 +47,6 @@ int	ft_atoi(const char *str, int mode)
 		i++;
 	}
 	if (str[i] != '\0' || (mode && result > 255) || (!mode && result > 180))
-		ft_error(ERROR_MSG_ATOI, 1, 0);
+		ft_error(ERROR_MSG_RANGE, 1, 0);
 	return ((int)result * n);
 }

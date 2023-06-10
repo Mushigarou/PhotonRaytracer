@@ -10,6 +10,16 @@ void	ft_error(char *error, int status, int opt)
 	exit(status);
 }
 
+int ptrlen(char **ptr)
+{
+	int i;
+
+	i = 0;
+	while(ptr[i])
+		i++;
+	return(i);
+}
+
 double	ft_atod(char *s)
 {
 	double	res = 0.0;
@@ -44,4 +54,5 @@ double	ft_atod(char *s)
 	if(*s)
 		ft_error("Error: Invalid Input utils_pars.c\n", 1, 0);
 	return (res * sign);
+	
 }

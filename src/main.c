@@ -56,5 +56,6 @@ int main(int ac, char **av)
 	initdata(&data);
 	rt_parsing(&data, fd);
 	check_ranges(&data);
-	printdata(&data);
+	// printdata(&data);
+	rt_rendering(&data);
 }

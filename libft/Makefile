@@ -18,12 +18,13 @@ ft_lstadd_front.c ft_lstnew.c ft_lstlast.c ft_lstsize.c ft_lstadd_back.c \
 ft_lstmap.c ft_lstiter.c ft_lstclear.c ft_lstdelone.c get_next_line.c get_next_line_utils.c 
 
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(patsubst %, obj/%, $(SRCS:.c=.o))
 
 all:$(NAME)
 
-%.o:%.c libft.h get_next_line.h
-	$(CC) $(CFLAGS) -c $<
+obj/%.o:%.c libft.h get_next_line.h
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):$(OBJS)
 	ar cr $(NAME) $(OBJS)

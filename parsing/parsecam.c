@@ -20,9 +20,13 @@ void parsecam(t_data *data, char **s)
 		ft_atod(coordp[0]),
 		ft_atod(coordp[1]),
 		ft_atod(coordp[2])};
-	data->cam->nvec = (t_vec){
+	data->cam->forvec = (t_vec){
 		ft_atod(coordv[0]),
 		ft_atod(coordv[1]),
 		ft_atod(coordv[2])};
+	data->cam->sidevec = cross_prod(data->cam->forvec, (t_vec){0, 1, 0});
+	if(!data->cam->sidevec.x && !data->cam->sidevec.y && !data->cam->sidevec.z)
+		data->cam->sidevec = cross_prod(data->cam->forvec, (t_vec){1, 0, 0});
+	data->cam->upvec = cross_prod(data->cam->forvec, data->cam->sidevec);
 	data->cam->FOV = ft_atoi(s[3], 0);
 }

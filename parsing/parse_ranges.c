@@ -105,7 +105,7 @@ void	check_ranges(t_data *data)
 		cy_nvec = cy_nvec->next;
 	}
 	if (data->cam)
-		parse_nvec_ranges(&data->cam->nvec);
+		parse_nvec_ranges(&data->cam->forvec);
 	if (data->lights)
 		parse_light_ranges(data->lights->range, 0, 0);
 	if (data->amlight)

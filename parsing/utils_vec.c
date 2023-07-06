@@ -37,5 +37,5 @@ double lengthvec(t_vec v)
 
 t_vec normvec(t_vec v)
 {
-	retrun(vecxnum(v, lengthvec(v)));
+	return(vecxnum(v, lengthvec(v)));
 }

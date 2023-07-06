@@ -19,14 +19,11 @@ typedef struct s_ray
 {
 	t_point	origin;
 	t_vec	direction;
+	int red;
+	int green;
 }	t_ray;
 
 void	rt_rendering(t_data *data);
-double dot_prod(t_vec v, t_vec u);
-t_vec	cross_prod(t_vec v, t_vec u);
-t_vec	vecadd(t_vec v, t_vec u);
-t_vec	vecxnum(t_vec v, double nb);
-t_vec	vecsub(t_vec v, t_vec u);
-double lengthvec(t_vec v);
+t_ray ft_ray(t_cam *cam, int x, int y, t_mlx *mlx);
 
 #endif

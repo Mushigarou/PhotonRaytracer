@@ -1,13 +1,29 @@
 #include "../includes/rt_render.h"
 #include <mlx.h>
 
+
+// typedef struct {
+//     int red;
+//     int green;
+// } t_color;
+
+// t_color map(int x, int y, int windowWidth, int windowHeight, int startx, int starty) {
+//     t_color color;
+    
+//     color.red = (((x - startx) * 255)) / ((windowWidth) - startx);
+//     color.green = ((y - starty) * 255) / ((windowHeight) - starty);
+    
+//     return color;
+// }
+
+
 void	init_new_size(t_mlx	*mlx, t_data *data)
 {
 	double angle;
 	
 	angle = data->cam->FOV * M_PI / 180;
 	mlx->n_width = tan(angle / 2);
-	mlx->n_height = 800 * mlx->n_width / 900;
+	mlx->n_height = 400 * mlx->n_width / 450;
 	printf("NW->%f, NH->%f\n",mlx->n_width, mlx->n_height);
 }
 void	rt_rendering(t_data *data)

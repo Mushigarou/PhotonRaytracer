@@ -34,3 +34,8 @@ double lengthvec(t_vec v)
 {
 	return(sqrt(dot_prod(v, v)));
 }
+
+t_vec normvec(t_vec v)
+{
+	retrun(vecxnum(v, lengthvec(v)));
+}

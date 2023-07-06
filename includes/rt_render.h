@@ -12,7 +12,14 @@ typedef struct s_mlx
 	void	*win;
 	double	n_width;
 	double	n_height;
+	double	pixel;
 } t_mlx;
+
+typedef struct s_ray
+{
+	t_point	origin;
+	t_vec	direction;
+}	t_ray;
 
 void	rt_rendering(t_data *data);
 double dot_prod(t_vec v, t_vec u);

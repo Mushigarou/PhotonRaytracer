@@ -114,7 +114,8 @@ t_vec	cross_prod(t_vec v, t_vec u);
 t_vec	vecadd(t_vec v, t_vec u);
 t_vec	vecxnum(t_vec v, double nb);
 t_vec	vecsub(t_vec v, t_vec u);
-double lengthvec(t_vec v);
+t_vec	normvec(t_vec v);
+double	lengthvec(t_vec v);
 
 #endif
 

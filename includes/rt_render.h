@@ -24,6 +24,6 @@ typedef struct s_ray
 }	t_ray;
 
 void	rt_rendering(t_data *data);
-t_ray ft_ray(t_cam *cam, int x, int y, t_mlx *mlx);
+t_ray *ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray);
 
 #endif

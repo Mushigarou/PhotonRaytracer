@@ -15,6 +15,12 @@ typedef struct s_mlx
 	double	pixel;
 } t_mlx;
 
+typedef struct s_solution
+{
+	double t;
+	int color;
+} t_solution;
+
 typedef struct s_ray
 {
 	t_point	origin;

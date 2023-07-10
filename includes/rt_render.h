@@ -20,7 +20,7 @@ typedef struct s_mlx
 typedef struct s_solution
 {
 	double t;
-	int color;
+	t_color color;
 } t_solution;
 
 typedef struct s_eq2d

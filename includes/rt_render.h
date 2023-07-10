@@ -6,6 +6,8 @@
 # include <math.h>
 # include <mlx.h>
 
+
+
 typedef struct s_mlx
 {
 	void	*mlx;
@@ -20,6 +22,16 @@ typedef struct s_solution
 	double t;
 	int color;
 } t_solution;
+
+typedef struct s_eq2d
+{
+	double a;
+	double b;
+	double c;
+	double t1;
+	double t2;
+	double delta;
+} t_eq2d;
 
 typedef struct s_ray
 {

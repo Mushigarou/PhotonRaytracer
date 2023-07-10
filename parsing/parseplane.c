@@ -42,7 +42,7 @@ void	parsepl(t_data *data, char **s)
 		ft_atod(coordv[1]), 
 		ft_atod(coordv[2])
 	};
-	pl->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
+	pl->color = (t_color){ft_atoi(rgb[0], 1) ,ft_atoi(rgb[1], 1), ft_atoi(rgb[2], 1)};
 	pl->next = NULL;
 	add_plane_back(&(data->pl), pl);
 }

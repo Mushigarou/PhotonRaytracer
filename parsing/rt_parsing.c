@@ -1,5 +1,5 @@
-#include "../includes/rt_parser.h"
-#include "../includes/minirt.h"
+#include "minirt.h"
+
 
 void	objparse(t_data *data, char *line, int *i)
 {

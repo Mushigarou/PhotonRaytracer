@@ -1,5 +1,5 @@
-#include "../includes/rt_parser.h"
-#include "../includes/minirt.h"
+#include "minirt.h"
+
 
 void	ft_error(char *error, int status, int opt)
 {

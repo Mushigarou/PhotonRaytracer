@@ -1,6 +1,6 @@
 #include "../includes/rt_render.h"
 
-t_ray *ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray)
+t_ray	*ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray)
 {
 	double		x_map;
 	double		y_map;
@@ -14,6 +14,5 @@ t_ray *ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray)
 	up = (vecxnum(cam->upvec, mlx->n_height * y_map));
 	side = (vecxnum(cam->sidevec, mlx->n_width * x_map));
 	ray->direction = normvec(vecadd(cam->forvec, vecadd(up, side)));
-
 	return(ray);
 }

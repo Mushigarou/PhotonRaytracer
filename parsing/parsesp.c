@@ -1,5 +1,5 @@
-#include "../includes/rt_parser.h"
-#include "../includes/minirt.h"
+#include "minirt.h"
+
 
 void	add_sphere_back(t_sphere **head, t_sphere *new)
 {

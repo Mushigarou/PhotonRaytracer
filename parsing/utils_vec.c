@@ -1,5 +1,4 @@
-#include "../includes/rt_parser.h"
-#include <math.h>
+#include "rt_render.h"
 
 double dot_prod(t_vec v, t_vec u)
 {

@@ -1,4 +1,4 @@
-#include "../includes/rt_parser.h"
+#include "minirt.h"
 
 /*
 

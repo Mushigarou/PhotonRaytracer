@@ -1,5 +1,5 @@
-#include "../includes/rt_parser.h"
-#include "../includes/minirt.h"
+#include "minirt.h"
+
 
 void	add_light_back(t_light **head, t_light *new)
 {
@@ -28,7 +28,8 @@ void	parselight(t_data *data, char **s)
 		(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (ft_error("Error: parse_light.c\n", 1, 0), 0);
 		rgb = ft_split(s[2], ",", 1);
 		(ptrlen(rgb) != 3) && (ft_error("Error : parselight.c\n", 1, 0), 0);
-		data->amlight->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
+		data->amlight->color = (t_color){ft_atoi(rgb[0], 1) , ft_atoi(rgb[1], 1), ft_atoi(rgb[2], 1)};
+		// data->amlight->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
 		return(data->amlight->range = ft_atod(s[1]), (void)0);
 	}
 	else
@@ -47,7 +48,8 @@ void	parselight(t_data *data, char **s)
 		ft_atod(coord[1]), 
 		ft_atod(coord[2])
 		};
-		light->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
+		light->color = (t_color){ft_atoi(rgb[0], 1), ft_atoi(rgb[1], 1), ft_atoi(rgb[2], 1)};
+		// light->color = (ft_atoi(rgb[0], 1) << 16) | (ft_atoi(rgb[1], 1) << 8) | ft_atoi(rgb[2], 1);
 		light->range = ft_atod(s[2]);
 		light->next = NULL;
 		return(add_light_back(&(data->lights), light));

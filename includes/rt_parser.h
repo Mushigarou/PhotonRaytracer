@@ -1,7 +1,7 @@
 #ifndef RT_PARSER_H
 #define RT_PARSER_H
-# include "../libgc/gc.h"
-# include "../libft/libft.h"
+
+# include "minirt.h"
 
 /* ************************************************************************** */
 /*									Enum Struct								  */
@@ -9,8 +9,6 @@
 
 enum s_type
 {
-	// Use of ERROR is optional for readability purposes
-	ERROR,
 	LIGHT,
 	PLANE,
 	CAMERA,
@@ -29,14 +27,14 @@ typedef struct s_3d
 	double		x;
 	double		y;
 	double		z;
-}	t_vec,	t_point;
+}	t_vec,	t_point, t_color;
 
 typedef struct s_sphere
 {
 	int				type;
 	t_point			center;
 	double			diam;
-	int				color;
+	t_color				color;
 	struct s_sphere	*next;
 }	t_sphere;
 
@@ -44,7 +42,9 @@ typedef struct s_cam
 {
 	int		type;
 	t_point	center;
-	t_vec 	nvec;
+	t_vec 	forvec;
+	t_vec 	sidevec;
+	t_vec 	upvec;
 	int		FOV;
 }	t_cam;
 
@@ -53,7 +53,7 @@ typedef struct s_light
 	int 			type;
 	t_point			pos;
 	double			range;
-	int				color;
+	t_color			color;
 	struct s_light	*next;
 }	t_light;
 
@@ -64,7 +64,7 @@ typedef struct s_cylinder
 	double				diam;
 	double				height;
 	t_vec				nvec;
-	int					color;
+	t_color				color;
 	struct s_cylinder	*next;
 }	t_cylinder;
 
@@ -74,11 +74,9 @@ typedef struct s_plane
 	int					type;
 	t_point				point;
 	t_vec				nvec;
-	int					color;
+	t_color				color;
 	struct s_plane		*next;
 }	t_plane;
-
-
 
 typedef struct s_data
 {
@@ -88,13 +86,12 @@ typedef struct s_data
 	t_light		*lights;
 	t_plane		*pl;
 	t_light		*amlight;
-} t_data;
+}	t_data;
 
 
 /* ************************************************************************** */
 /*							Parsing Functions								  */
 /* ************************************************************************** */
-
 void	parsecam(t_data *data, char **s);
 void	parsecy(t_data *data, char **s);
 void	parselight(t_data *data, char **s);
@@ -103,7 +100,7 @@ void	parsepl(t_data *data, char **s);
 void	rt_parsing(t_data *data, int fd);
 void	ft_error(char *error, int status, int opt);
 double	ft_atod(char *s);
-int ptrlen(char **ptr);
+int		ptrlen(char **ptr);
 void	printdata(t_data *data);
 void	check_ranges(t_data *data);
 

@@ -8,6 +8,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <mlx.h>
+# include "gc.h"
+# include "libft.h"
 
 #ifndef ERROR_MSG
 # define ERROR_MSG "ERROR: incorect Input\n"

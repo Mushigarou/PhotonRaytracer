@@ -1,5 +1,5 @@
-#include "../includes/rt_parser.h"
-#include "../includes/minirt.h"
+#include "minirt.h"
+
 
 void	add_light_back(t_light **head, t_light *new)
 {

@@ -1,5 +1,4 @@
-#include "../includes/minirt.h"
-#include "../includes/rt_parser.h"
+#include "minirt.h"
 
 /*
 	• Allowed functions :
@@ -21,7 +20,7 @@ int checkfile(char *file)
 }
 
 // Initilizes mlx params;
-void initdata(t_data *data)
+void	initdata(t_data *data)
 {
 	data->amlight = NULL;
 	data->cam = NULL;

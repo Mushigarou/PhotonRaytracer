@@ -20,7 +20,7 @@ static void	init_new_size(t_mlx	*mlx, t_data *data)
 	angle = data->cam->FOV * M_PI / 180;
 	mlx->n_width = tan(angle / 2);
 	mlx->n_height = HEIGHT * mlx->n_width / WIDTH;
-	printf("NW->%f, NH->%f\n",mlx->n_width, mlx->n_height);
+	// printf("NW->%f, NH->%f\n",mlx->n_width, mlx->n_height);
 }
 
 void	rt_rendering(t_data *data)
@@ -40,8 +40,7 @@ void	rt_rendering(t_data *data)
 		{
 			utils.T.t = -1;
 			utils.T.color = data->amlight->color;
-			utils.ray = gc(sizeof(t_ray), 1);
-			utils.ray = ft_ray(data->cam, i, j, &utils.mlx, utils.ray);
+			ft_ray(data->cam, i, j, &utils.mlx, &utils.ray);
 			find_intersections_with_objects(data, &utils);
 			int color =  (int)(utils.T.color.x) << 16 |(int)utils.T.color.y << 8 | (int)utils.T.color.z;
 			mlx_pixel_put(utils.mlx.mlx, utils.mlx.win, i, j, color);

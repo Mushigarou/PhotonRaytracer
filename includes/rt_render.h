@@ -3,8 +3,9 @@
 
 # include "rt_parser.h"
 # include <mlx.h>
+# include <stdbool.h>
 
-# define EPS 0.000001
+# define EPS 0.00001
 # define WIDTH 900
 # define HEIGHT 800
 
@@ -20,6 +21,11 @@ typedef struct s_mlx
 typedef struct s_solution
 {
 	double	t;
+	t_point center;
+	t_point inter;
+	t_vec lvec;
+	t_vec norm;
+	t_vec Rnorm;
 	t_color color;
 } t_solution;
 
@@ -45,7 +51,7 @@ typedef	struct s_intersection_utils
 {
 	t_data		*data;
 	t_solution	T;
-	t_ray		*ray;
+	t_ray		ray;
 	t_mlx		mlx;
 	t_light		*am;
 	t_light		*l;
@@ -55,19 +61,20 @@ typedef	struct s_intersection_utils
 /*								Rendering									  */
 /* ************************************************************************** */
 void	rt_rendering(t_data *data);
-t_ray	*ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray);
+void	ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray);
 
 /* ************************************************************************** */
 /*								Colors										  */
 /* ************************************************************************** */
-t_color coefcolor(t_color color, double coef);
+t_color coefcolor(t_color c1, t_color c2, double coef);
 t_color coloradd(t_color c1, t_color c2);
+t_color colormix(t_color c1, t_color c2);
 
 /* ************************************************************************** */
 /*								Intersections								  */
 /* ************************************************************************** */
 void	interpl(t_ray *ray, t_plane *pl, t_solution *T);
-double  intersp(t_utils *utils, t_sphere *sp);
+bool  intersp(t_utils *utils, t_sphere *sp);
 void	find_intersections_with_objects(t_data *data, t_utils *utils);
 
 /* ************************************************************************** */

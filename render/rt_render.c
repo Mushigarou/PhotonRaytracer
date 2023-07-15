@@ -57,7 +57,7 @@ void	rt_rendering(t_data *data, t_utils *utils)
 		while(++i < WIDTH)
 		{
 			utils->T.t = -1;
-			utils->T.color = data->amlight->color;
+			utils->T.color = (t_color){0,0,0};
 			ft_ray(data->cam, i, j, &utils->mlx, &utils->ray);
 			find_intersections_with_objects(data, utils);
 			int color =  (int)(utils->T.color.x) << 16 |(int)utils->T.color.y << 8 | (int)utils->T.color.z;

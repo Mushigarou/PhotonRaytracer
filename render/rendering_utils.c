@@ -1,10 +1,21 @@
 #include "../includes/rt_render.h"
 
+void	put_pixel_on_image(t_img *img, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	// printf("img : %p | addr = %p | ln = %d | en = %d | bpp = %d | x = %d | y = %d\n", \
+	// 	img, img->addr, img->line_length, img->endian,img->bits_per_pixel,  x, y);
+	*(unsigned int*)dst = color;
+	return ;
+}
+
+
 void	find_intersections_with_objects(t_data *data, t_utils *utils)
 {
 	t_sphere    *sphere;
 
-	
 	utils->l = data->lights;
 	utils->am = data->amlight;
 	sphere = data->sph;
@@ -36,6 +47,7 @@ void	find_intersections_with_objects(t_data *data, t_utils *utils)
 		utils->ray = tmp;
 		if (!isShadow)
 			calcul_sphere_light(utils, sphere, utils->T.t);
-	}    
+	}
 	return ;
 }
+

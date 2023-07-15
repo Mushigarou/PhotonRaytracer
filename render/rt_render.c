@@ -23,30 +23,29 @@ static void	init_new_size(t_mlx	*mlx, t_data *data)
 	// printf("NW->%f, NH->%f\n",mlx->n_width, mlx->n_height);
 }
 
-void	rt_rendering(t_data *data)
+void	rt_rendering(t_data *data, t_utils *utils)
 {
-	t_utils	utils;
 	int		i;
 	int		j;
 
 	j = -1;
-	utils.mlx.mlx = mlx_init();
-	utils.mlx.win = mlx_new_window(utils.mlx.mlx, WIDTH, HEIGHT, "minirt");
-	init_new_size(&utils.mlx, data);
-	while(++j <= HEIGHT)
+	init_new_size(&utils->mlx, data);
+	while(++j < HEIGHT)
 	{
 		i = -1;
-		while(++i <= WIDTH)
+		while(++i < WIDTH)
 		{
-			utils.T.t = -1;
-			utils.T.color = data->amlight->color;
-			ft_ray(data->cam, i, j, &utils.mlx, &utils.ray);
-			find_intersections_with_objects(data, &utils);
-			int color =  (int)(utils.T.color.x) << 16 |(int)utils.T.color.y << 8 | (int)utils.T.color.z;
-			mlx_pixel_put(utils.mlx.mlx, utils.mlx.win, i, j, color);
+			utils->T.t = -1;
+			utils->T.color = data->amlight->color;
+			ft_ray(data->cam, i, j, &utils->mlx, &utils->ray);
+			find_intersections_with_objects(data, utils);
+			int color =  (int)(utils->T.color.x) << 16 |(int)utils->T.color.y << 8 | (int)utils->T.color.z;
+			put_pixel_on_image(utils->mlx.img, i, j, color);
 		}
 	}
-	mlx_loop(utils.mlx.mlx);
+	mlx_put_image_to_window(utils->mlx.mlx, utils->mlx.win, \
+		utils->mlx.img->img, 0, 0);
+	mlx_loop(utils->mlx.mlx);
 }
 
 /*

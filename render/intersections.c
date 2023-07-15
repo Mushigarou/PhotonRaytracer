@@ -38,3 +38,15 @@ bool   intersp(t_utils *utils, t_sphere *sp)
 	}
 	return(false);
 }
+
+bool	ray_cylinder_intersection(t_utils *utils, t_cylinder *cyl)
+{
+	(void)cyl;
+	(void)utils;
+	/*
+	a   = D|D - (D|V)^2
+	b/2 = D|X - (D|V)*(X|V)
+	c = X|X - (X|V)^2 - r*r
+	*/
+	return (0);
+}

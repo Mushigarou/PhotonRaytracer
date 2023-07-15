@@ -87,7 +87,9 @@ t_color colormix(t_color c1, t_color c2);
 /* ************************************************************************** */
 void	interpl(t_ray *ray, t_plane *pl, t_solution *T);
 bool  intersp(t_utils *utils, t_sphere *sp);
+bool	ray_cylinder_intersection(t_utils *utils, t_cylinder *cyl);
 void	find_intersections_with_objects(t_data *data, t_utils *utils);
+
 
 /* ************************************************************************** */
 /*								Light										  */

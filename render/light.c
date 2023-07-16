@@ -4,14 +4,12 @@
 
 // t_color ambiant(t_sphere sp, )
 
-void    calcul_sphere_light(t_utils *utils, t_sphere *sp, double t)
+void    calcul_sphere_light(t_utils *utils, t_sphere *sp)
 {
 	(void)sp;
 	t_solution *T;
 
 	T = &(utils->T);
-	T->inter = vecadd(utils->ray.origin, vecxnum(utils->ray.direction, t));
-	T->norm = normvec(vecsub(T->inter, utils->T.center));
 	T->lvec = normvec(vecsub(utils->l->pos, T->inter));
 	double dot;
 	t_color speclight;
@@ -27,7 +25,7 @@ void    calcul_sphere_light(t_utils *utils, t_sphere *sp, double t)
 		}
 		else 
 		{
-			double specular = pow(dot2, 200);
+			double specular = pow(dot2, 60);
 			speclight = vecxnum(utils->l->color, specular); 
 		}
 		t_color ambiant = vecxnum(utils->am->color, utils->am->range);

@@ -94,7 +94,7 @@ void	find_intersections_with_objects(t_data *data, t_utils *utils);
 /* ************************************************************************** */
 /*								Light										  */
 /* ************************************************************************** */
-void    calcul_sphere_light(t_utils *utils, t_sphere *sp, double t);
+void    calcul_sphere_light(t_utils *utils, t_sphere *sp);
 
 /* ************************************************************************** */
 /*							Vector Calculations								  */

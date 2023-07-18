@@ -4,7 +4,7 @@
 void	objparse(t_data *data, char *line, int *i)
 {
 	char **const s = ft_split(line, " \t", 0);
-	if (!s || !(*s))
+	if (!s || !(*s) || **s == '#')
 		return ;
 	if(!ft_strncmp(s[0], "C", 1) && (ft_strlen(s[0]) == 1))
 		return(parsecam(data, s), (*i)++, (void)0);

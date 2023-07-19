@@ -1,14 +1,5 @@
 #include "minirt.h"
 
-/*
-	• Allowed functions :
-		open, close, read, write,
-		printf, malloc, free, perror,
-		strerror, exit
-	• All functions of the math library (-lm man man 3 math)
-	• All functions of the MinilibX
-*/
-
 int checkfile(char *file)
 {
 	int len;

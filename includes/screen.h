@@ -1,15 +1,7 @@
 #ifndef SCREEN_H
 # define SCREEN_H
 
-typedef struct s_mlx_image
-{
-	char	*addr;
-	void	*img;
-	int		bits_per_pixel;
-	int		endian;
-	int		line_length;
-}	t_img;
-
+#include "image.h"
 
 typedef struct s_mlx
 {

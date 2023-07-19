@@ -3,7 +3,7 @@
 
 #include "vectors.h"
 
-typedef struct s_cam
+typedef struct	s_cam
 {
 	int		type;
 	t_point	center;

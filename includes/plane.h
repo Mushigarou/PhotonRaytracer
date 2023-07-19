@@ -2,6 +2,11 @@
 # define PLANE_H
 
 #include "vectors.h"
+#include "render_utils.h"
+
+#ifndef EPS
+# define EPS 0.00001
+#endif // EPS
 
 typedef struct s_plane
 {
@@ -11,5 +16,7 @@ typedef struct s_plane
 	t_color				color;
 	struct s_plane		*next;
 }	t_plane;
+
+void	interpl(t_ray *ray, t_plane *pl, t_solution *T);
 
 #endif // PLANE_H

@@ -1,5 +1,6 @@
 #include "camera.h"
 #include "minirt.h"
+#include "parser.h"
 
 void parsecam(t_data *data, char **s)
 {

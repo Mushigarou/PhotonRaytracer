@@ -12,6 +12,7 @@ in range [-1, 1] parse_ranges.c"
 #endif // ERROR_LIGHT
 
 #include "minirt.h"
+#include "parser.h"
 
 
 static void	parse_nvec_ranges(t_vec *nvec)

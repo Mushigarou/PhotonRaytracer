@@ -1,4 +1,5 @@
 #include "minirt.h"
+#include "parser.h"
 
 int checkfile(char *file)
 {

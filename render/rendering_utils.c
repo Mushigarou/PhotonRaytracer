@@ -1,4 +1,5 @@
 #include "minirt.h"
+#include "image.h"
 
 typedef struct s_tmp{
 	t_sphere	*sphere;
@@ -72,7 +73,7 @@ void	find_intersections_with_objects(t_data *data, t_utils *utils)
 	// 	// }
 	// 	// utils->ray = tmp_ray;
 	// 	// // if (!isShadow)
-	// 		// calcul_sphere_light(utils, tmp.sphere);
+	// 		// calcul_light_for_current_pixel(utils, tmp.sphere);
 	// }
 	return ;
 }

@@ -1,6 +1,6 @@
-#include "minirt.h"
+#include "colors.h"
 
-t_color coefcolor(t_color c1, t_color c2, double coef)
+t_color	coefcolor(t_color c1, t_color c2, double coef)
 {
 	t_color c;
 

@@ -1,4 +1,5 @@
 #include "minirt.h"
+#include "colors.h"
 
 // static void	specular_light(t_utils *utils, t_solution *T)
 // {
@@ -19,9 +20,8 @@
 // 	return ;
 // }
 
-void    calcul_sphere_light(t_utils *utils, t_sphere *sp)
+void    calcul_light_for_current_pixel(t_utils *utils)
 {
-	(void)sp;
 	t_solution *T;
 
 	T = &(utils->T);

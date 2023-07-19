@@ -3,6 +3,9 @@
 
 # include "vectors.h"
 
+// typedef	struct s_utils t_utils;
+
+
 typedef struct s_sphere
 {
 	int				type;

@@ -1,5 +1,6 @@
-// #include "../includes/rt_parser.h"
 #include "minirt.h"
+#include "parser.h"
+
 
 void	add_cylinder_back(t_cylinder **head, t_cylinder *new)
 {

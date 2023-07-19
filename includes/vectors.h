@@ -1,7 +1,6 @@
 #ifndef VECTORS_H
 # define VECTORS_H
 
-
 typedef struct s_3d
 {
 	double		x;

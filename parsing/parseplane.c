@@ -1,5 +1,5 @@
 #include "minirt.h"
-
+#include "parser.h"
 
 void	add_plane_back(t_plane **head, t_plane *new)
 {

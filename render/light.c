@@ -1,4 +1,4 @@
-#include "rt_render.h"
+#include "minirt.h"
 
 // static void	specular_light(t_utils *utils, t_solution *T)
 // {

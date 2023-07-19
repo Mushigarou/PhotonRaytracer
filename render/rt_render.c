@@ -1,6 +1,4 @@
-#include "rt_render.h"
-# define DESTROY	17
-# define KEYBOARD	2
+#include "minirt.h"
 
 static int	destroy_window(t_utils *utils)
 {

@@ -1,4 +1,4 @@
-#include "rt_render.h"
+#include "minirt.h"
 
 double dot_prod(t_vec v, t_vec u)
 {

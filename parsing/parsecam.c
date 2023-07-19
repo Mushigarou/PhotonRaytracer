@@ -1,3 +1,4 @@
+#include "camera.h"
 #include "minirt.h"
 
 void parsecam(t_data *data, char **s)
@@ -6,8 +7,10 @@ void parsecam(t_data *data, char **s)
 	char **coordv;
 
 	(ptrlen(s) != 4) && (ft_error("Error : parsecam.c\n", 1, 0), 0);
-	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) && (ft_error("Error\n", 1, 0), 0);
-	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) && (ft_error("Error\n", 1, 0), 0);
+	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) \
+		&& (ft_error("Error\n", 1, 0), 0);
+	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) \
+		&& (ft_error("Error\n", 1, 0), 0);
 	coordp = ft_split(s[1], ",", 1);
 	(ptrlen(coordp) != 3) && (ft_error("Error : parsecam.c\n", 1, 0), 0);
 	coordv = ft_split(s[2], ",", 1);

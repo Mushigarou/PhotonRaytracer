@@ -43,6 +43,8 @@ void	init_mlx_window(t_utils *utils)
 
 int main(int ac, char **av)
 {
+	(void)ac;
+	(void)av;
 	int		fd;
 	t_data	data;
 	t_utils	utils;

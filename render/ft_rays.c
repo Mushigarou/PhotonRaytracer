@@ -1,4 +1,4 @@
-#include "../includes/rt_render.h"
+#include "minirt.h"
 
 void	ft_ray(t_cam *cam, int x, int y, t_mlx *mlx, t_ray *ray)
 {

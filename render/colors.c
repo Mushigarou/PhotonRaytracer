@@ -1,4 +1,4 @@
-#include "../includes/rt_render.h"
+#include "minirt.h"
 
 t_color coefcolor(t_color c1, t_color c2, double coef)
 {

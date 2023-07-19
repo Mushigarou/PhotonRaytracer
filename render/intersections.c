@@ -1,4 +1,5 @@
-#include "../includes/rt_render.h"
+#include "minirt.h"
+#include "intersection_utils.h"
 
 void	interpl(t_ray *ray, t_plane *pl, t_solution *T)
 {

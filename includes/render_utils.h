@@ -9,11 +9,11 @@ typedef struct s_solution
 	double	t;
 	t_point center;
 	t_point inter;
-	t_vec lvec;
-	t_vec norm;
-	t_vec Rnorm;
+	t_vec	lvec;
+	t_vec	norm;
+	t_vec	Rnorm;
 	t_color color;
-} t_solution;
+}	t_solution;
 
 void	put_pixel_on_image(t_img *img, int x, int y, int color);
 

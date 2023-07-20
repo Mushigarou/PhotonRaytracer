@@ -1,19 +1,19 @@
+#include "minirt.h"
+#include "parser.h"
+
 #ifndef ERROR_NVEC
-#define ERROR_NVEC "Error: invalid range for normalized 3d vector \
+# define ERROR_NVEC "Error: invalid range for normalized 3d vector \
 in range [-1, 1] parse_ranges.c"
 #endif // ERROR_NVEC
 
 #ifndef ERROR_AMB
-#define ERROR_AMB "Error: ambiant light in range [0.0,1.0] parse_ranges.c"
+# define ERROR_AMB "Error: ambiant light in range [0.0,1.0] parse_ranges.c"
 #endif // ERROR_NVEC
 
 #ifndef ERROR_LIGHT
-#define ERROR_LIGHT "Error: the light brightness ratio in range [0.0,1.0] parse_ranges.c"
+# define ERROR_LIGHT "Error: the light brightness ratio in range [0.0,1.0] \
+	parse_ranges.c"
 #endif // ERROR_LIGHT
-
-#include "minirt.h"
-#include "parser.h"
-
 
 static void	parse_nvec_ranges(t_vec *nvec)
 {

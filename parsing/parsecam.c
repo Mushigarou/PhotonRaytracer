@@ -2,10 +2,10 @@
 #include "minirt.h"
 #include "parser.h"
 
-void parsecam(t_data *data, char **s)
+void	parsecam(t_data *data, char **s)
 {
-	char **coordp;
-	char **coordv;
+	char	**coordp;
+	char	**coordv;
 
 	(ptrlen(s) != 4) && (ft_error("Error : parsecam.c\n", 1, 0), 0);
 	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) \

@@ -2,6 +2,9 @@
 # define CYLINDER_H
 
 #include "vectors.h"
+#include <stdbool.h>
+
+typedef struct	s_intersection_utils t_utils;
 
 typedef struct s_cylinder
 {
@@ -13,5 +16,7 @@ typedef struct s_cylinder
 	t_color				color;
 	struct s_cylinder	*next;
 }	t_cylinder;
+
+bool	ray_cylinder_intersection(t_utils *utils, t_cylinder *cyl);
 
 #endif // CYLINDER_H

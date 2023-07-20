@@ -23,7 +23,7 @@ OBJS = $(patsubst %, obj/%, $(SRCS:.c=.o))
 all:$(NAME)
 
 obj/%.o:%.c libft.h get_next_line.h
-	mkdir -p $(dir $@)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):$(OBJS)

@@ -3,6 +3,7 @@
 
 #include "vectors.h"
 #include "render_utils.h"
+#include <stdbool.h>
 
 #ifndef EPS
 # define EPS 0.00001
@@ -17,6 +18,6 @@ typedef struct s_plane
 	struct s_plane		*next;
 }	t_plane;
 
-void	interpl(t_ray *ray, t_plane *pl, t_solution *T);
+bool	interpl(t_ray *ray, t_plane *pl, t_solution *T);
 
 #endif // PLANE_H

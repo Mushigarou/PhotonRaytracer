@@ -65,6 +65,5 @@ void	check_ranges(t_data *data)
 		parse_light_ranges(data->lights->range, 0, 0);
 	if (data->amlight)
 		parse_light_ranges(0, data->amlight->range, 1);
-
 	return ;
 }

@@ -1,4 +1,5 @@
-#include "minirt.h"
+#include "vectors.h"
+#include <math.h>
 
 double dot_prod(t_vec v, t_vec u)
 {

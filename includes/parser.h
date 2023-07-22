@@ -1,7 +1,7 @@
 #ifndef PARSER_H
-#define PARSER_H
+# define PARSER_H
 
-#include "minirt.h"
+# include "minirt.h"
 
 /* ************************************************************************** */
 /*							Parsing Functions								  */
@@ -18,6 +18,4 @@ int		ptrlen(char **ptr);
 void	printdata(t_data *data);
 void	check_ranges(t_data *data);
 
-
 #endif // PARSER_H
-

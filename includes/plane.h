@@ -1,13 +1,13 @@
 #ifndef PLANE_H
 # define PLANE_H
 
-#include "vectors.h"
-#include "render_utils.h"
-#include <stdbool.h>
+# include "vectors.h"
+# include "render_utils.h"
+# include <stdbool.h>
 
-#ifndef EPS
-# define EPS 0.00001
-#endif // EPS
+# ifndef EPS
+#  define EPS 0.00001
+# endif // EPS
 
 typedef struct s_plane
 {

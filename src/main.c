@@ -11,19 +11,15 @@ static void	init_mlx_window(t_mlx *mlx)
 	return ;
 }
 
-/* ************************************************************************** */
-/*							TODO LIST										  */
-/* ************************************************************************** */
+/* ***************************************************************************/
+/*							TODO LIST										 */
+/* ***************************************************************************/
 /*
-	// TODO : Elements which are defined by a capital letter can only be declared once in
+	// TODO : Elements which are defined by a capital letter 
+		can only be declared once in
 	// TODO : check overflow in atod
 	// TODO : 
 */
-
-void lk()
-{
-	system("leaks minirt");
-}
 
 int	main(int ac, char **av)
 {
@@ -33,7 +29,6 @@ int	main(int ac, char **av)
 	t_img	img;
 	t_mlx	mlx;
 
-	atexit(lk);
 	if (ac != 2)
 		ft_error("Invalid Arguments", 1, 0);
 	fd = checkfile(av[1]);

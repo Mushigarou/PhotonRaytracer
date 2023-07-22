@@ -1,17 +1,17 @@
 #ifndef RENDER_H
 # define RENDER_H
 
-#include "minirt.h"
-#include "screen.h"
-#include "render_utils.h"
-#include "light.h"
+# include "minirt.h"
+# include "screen.h"
+# include "render_utils.h"
+# include "light.h"
 
-typedef	struct s_data t_data;
-typedef	struct s_light t_light;
+typedef struct s_data	t_data;
+typedef struct s_light	t_light;
 
-typedef	struct s_intersection_utils
+typedef struct s_intersection_utils
 {
-	t_solution	T;
+	t_solution	t;
 	t_ray		ray;
 	t_mlx		mlx;
 	t_light		*am;

@@ -18,7 +18,7 @@ static void	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color zb, \
 			if (intersp(utils, tmp->sphere))
 			{
 				*is_shadow = true;
-				utils->T.color = colormix(zb, vecxnum(utils->am->color, \
+				utils->t.color = colormix(zb, vecxnum(utils->am->color, \
 					utils->am->range));
 				break ;
 			}
@@ -29,7 +29,7 @@ static void	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color zb, \
 			if (ray_cylinder_intersection(utils, tmp->cylinder))
 			{
 				*is_shadow = true;
-				utils->T.color = colormix(zb, vecxnum(utils->am->color, \
+				utils->t.color = colormix(zb, vecxnum(utils->am->color, \
 					utils->am->range));
 				break ;
 			}
@@ -47,7 +47,7 @@ static void	specular_light(t_utils *utils, t_solution *T)
 	double	specular;
 	double	dot2;
 
-	dot2 = dot_prod(normvec(T->Rnorm), \
+	dot2 = dot_prod(normvec(T->r_norm), \
 		normvec(vecsub(utils->ray.origin, T->inter)));
 	if (dot2 <= 0)
 	{
@@ -70,12 +70,12 @@ static void	calcul_light_value(t_utils *utils)
 	t_color		lights;
 	double		dot;
 
-	solution_data = &(utils->T);
+	solution_data = &(utils->t);
 	solution_data->lvec = normvec(vecsub(utils->l->pos, solution_data->inter));
 	dot = dot_prod(solution_data->norm, solution_data->lvec);
 	if (dot > 0)
 	{
-		solution_data->Rnorm = normvec(\
+		solution_data->r_norm = normvec(\
 			vecsub(vecxnum(solution_data->norm, 2 * dot), solution_data->lvec));
 		diffuse = vecxnum(utils->l->color, dot * utils->l->range);
 		ambiant = vecxnum(utils->am->color, utils->am->range);
@@ -98,11 +98,11 @@ void	check_light_for_current_pixel(t_data *data, t_utils *utils)
 	t_color	zb;
 	t_tmp	tmp;
 
-	zb = utils->T.color;
+	zb = utils->t.color;
 	tmp_ray = utils->ray;
 	is_shadow = false;
-	utils->ray.origin = utils->T.inter;
-	utils->ray.direction = normvec(vecsub(utils->l->pos, utils->T.inter));
+	utils->ray.origin = utils->t.inter;
+	utils->ray.direction = normvec(vecsub(utils->l->pos, utils->t.inter));
 	tmp.sphere = data->sph;
 	tmp.cylinder = data->cyl;
 	tmp.plane = data->pl;

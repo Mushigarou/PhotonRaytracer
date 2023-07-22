@@ -1,15 +1,15 @@
 #ifndef LIGHT_H
 # define LIGHT_H
 
-#include "vectors.h"
-#include "render.h"
+# include "vectors.h"
+# include "render.h"
 
-typedef	struct s_intersection_utils t_utils;
-typedef	struct s_data t_data;
+typedef struct s_intersection_utils	t_utils;
+typedef struct s_data				t_data;
 
 typedef struct s_light
 {
-	int 			type;
+	int				type;
 	t_point			pos;
 	double			range;
 	t_color			color;

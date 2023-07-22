@@ -6,7 +6,7 @@ typedef struct s_3d
 	double		x;
 	double		y;
 	double		z;
-}	t_vec,	t_point, t_color;
+} t_vec, t_point,	t_color;
 
 typedef struct s_ray
 {
@@ -19,7 +19,7 @@ typedef struct s_ray
 /* ************************************************************************** */
 /*							Vector Calculations								  */
 /* ************************************************************************** */
-double dot_prod(t_vec v, t_vec u);
+double	dot_prod(t_vec v, t_vec u);
 t_vec	cross_prod(t_vec v, t_vec u);
 t_vec	vecadd(t_vec v, t_vec u);
 t_vec	vecxnum(t_vec v, double nb);

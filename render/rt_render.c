@@ -3,7 +3,6 @@
 
 static int	destroy_window(t_mlx *mlx)
 {
-	// mlx_destroy_image(utils->mlx.mlx, utils->mlx.img);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	exit(0);
 }
@@ -24,8 +23,8 @@ static void	camera_orientation(t_cam *cam)
 		return ;
 	cam->forvec = normvec(cam->forvec);
 	cam->sidevec = cross_prod((t_vec){0, 1, 0}, cam->forvec);
-	if(!cam->sidevec.x && !cam->sidevec.y && !cam->sidevec.z)
-		cam->sidevec = cross_prod((t_vec){1, 0, 0},  cam->forvec);
+	if (!cam->sidevec.x && !cam->sidevec.y && !cam->sidevec.z)
+		cam->sidevec = cross_prod((t_vec){1, 0, 0}, cam->forvec);
 	cam->sidevec = normvec(cam->sidevec);
 	cam->upvec = cross_prod(cam->sidevec, cam->forvec);
 	cam->upvec = normvec(cam->upvec);
@@ -34,34 +33,35 @@ static void	camera_orientation(t_cam *cam)
 
 static void	init_new_size(t_mlx	*mlx, t_data *data)
 {
-	double angle;
-	
+	double	angle;
+
 	if (!data->cam || !mlx)
 		return ;
 	camera_orientation(data->cam);
-	angle = data->cam->FOV * M_PI / 180;
+	angle = data->cam->fov * M_PI / 180;
 	mlx->n_width = tan(angle / 2);
 	mlx->n_height = HEIGHT * mlx->n_width / WIDTH;
-	printf("NW->%f, NH->%f\n",mlx->n_width, mlx->n_height);
 }
 
-void	rt_rendering(t_data *data, t_utils *utils, t_mlx *mlx) // cam, T, mlx
+void	rt_rendering(t_data *data, t_utils *utils, t_mlx *mlx)
 {
-	int		i;
-	int		j;
+	int	color;
+	int	i;
+	int	j;
 
 	j = -1;
 	init_new_size(mlx, data);
-	while(++j < HEIGHT)
+	while (++j < HEIGHT)
 	{
 		i = -1;
-		while(++i < WIDTH)
+		while (++i < WIDTH)
 		{
-			utils->T.t = -1;
-			utils->T.color = (t_color){0,0,0};
+			utils->t.t = -1;
+			utils->t.color = (t_color){0, 0, 0};
 			ft_ray(data->cam, i, j, mlx, &utils->ray);
 			find_intersections_with_objects(data, utils);
-			int color = (int)(utils->T.color.x) << 16 |(int)utils->T.color.y << 8 | (int)utils->T.color.z;
+			color = (int)(utils->t.color.x) << 16 | \
+				(int)utils->t.color.y << 8 | (int)utils->t.color.z;
 			put_pixel_on_image(mlx->img, i, j, color);
 		}
 	}

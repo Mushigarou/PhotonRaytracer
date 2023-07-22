@@ -35,18 +35,7 @@ static void	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color zb, \
 			}
 			tmp->cylinder = tmp->cylinder->next;
 		}
-		if (tmp->plane)
-		{
-			if (interpl(&utils->ray, tmp->plane, &utils->T))
-			{
-				*is_shadow = true;
-				utils->T.color = colormix(zb, vecxnum(utils->am->color, \
-					utils->am->range));
-				break ;
-			}
-			tmp->plane = tmp->plane->next;
-		}
-		if (!tmp->sphere && !tmp->cylinder && !tmp->plane)
+		if (!tmp->sphere && !tmp->cylinder )
 			break ;
 	}
 	return ;

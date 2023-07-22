@@ -1,5 +1,6 @@
 #include "minirt.h"
 #include "image.h"
+#include "colors.h"
 
 typedef struct s_tmp{
 	t_sphere	*sphere;
@@ -52,7 +53,10 @@ void	find_intersections_with_objects(t_data *data, t_utils *utils)
 	tmp.cylinder = data->cyl;
 	tmp.plane = data->pl;
 	get_closest_intersection_for_current_pixel(utils, &tmp);
-	if (utils->t.t > EPS)
+	if (utils->t.t > EPS && utils->l)
 		check_light_for_current_pixel(data, utils);
+	else
+		utils->t.color = colormix(utils->t.color, \
+			vecxnum(utils->am->color, utils->am->range));
 	return ;
 }

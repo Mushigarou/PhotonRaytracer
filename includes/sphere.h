@@ -2,10 +2,9 @@
 # define SPHERE_H
 
 # include "vectors.h"
-#include <stdbool.h>
+# include <stdbool.h>
 
-typedef	struct s_intersection_utils t_utils;
-
+typedef struct s_intersection_utils	t_utils;
 
 typedef struct s_sphere
 {

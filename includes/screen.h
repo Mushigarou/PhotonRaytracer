@@ -1,7 +1,7 @@
 #ifndef SCREEN_H
 # define SCREEN_H
 
-#include "image.h"
+# include "image.h"
 
 typedef struct s_mlx
 {

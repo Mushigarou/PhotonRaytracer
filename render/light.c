@@ -8,37 +8,32 @@ typedef struct s_tmp{
 	t_plane		*plane;
 }	t_tmp;
 
-static void	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color zb, \
-	bool *is_shadow)
+static void
+	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color c, \
+		bool *is_shadow)
 {
-	while (1)
+	while (tmp->sphere)
 	{
-		if (tmp->sphere)
+		if (intersp(utils, tmp->sphere))
 		{
-			if (intersp(utils, tmp->sphere))
-			{
-				*is_shadow = true;
-				utils->t.color = colormix(zb, vecxnum(utils->am->color, \
-					utils->am->range));
-				break ;
-			}
-			tmp->sphere = tmp->sphere->next;
+			*is_shadow = true;
+			utils->t.color = colormix(c, vecxnum(utils->am->color, \
+				utils->am->range));
+			return ;
 		}
-		if (tmp->cylinder)
-		{
-			if (ray_cylinder_intersection(utils, tmp->cylinder))
-			{
-				*is_shadow = true;
-				utils->t.color = colormix(zb, vecxnum(utils->am->color, \
-					utils->am->range));
-				break ;
-			}
-			tmp->cylinder = tmp->cylinder->next;
-		}
-		if (!tmp->sphere && !tmp->cylinder)
-			break ;
+		tmp->sphere = tmp->sphere->next;
 	}
-	return ;
+	while (tmp->cylinder)
+	{
+		if (ray_cylinder_intersection(utils, tmp->cylinder))
+		{
+			*is_shadow = true;
+			utils->t.color = colormix(c, vecxnum(utils->am->color, \
+				utils->am->range));
+			return ;
+		}
+		tmp->cylinder = tmp->cylinder->next;
+	}
 }
 
 static void	specular_light(t_utils *utils, t_solution *T)
@@ -55,7 +50,7 @@ static void	specular_light(t_utils *utils, t_solution *T)
 	}
 	else
 	{
-		specular = pow(dot2, 60);
+		specular = 0.4 * pow(dot2, 60);
 		speclight = vecxnum(utils->l->color, specular);
 	}
 	T->color = coloradd(T->color, speclight);
@@ -95,10 +90,10 @@ void	check_light_for_current_pixel(t_data *data, t_utils *utils)
 {
 	bool	is_shadow;
 	t_ray	tmp_ray;
-	t_color	zb;
+	t_color	c;
 	t_tmp	tmp;
 
-	zb = utils->t.color;
+	c = utils->t.color;
 	tmp_ray = utils->ray;
 	is_shadow = false;
 	utils->ray.origin = utils->t.inter;
@@ -106,7 +101,7 @@ void	check_light_for_current_pixel(t_data *data, t_utils *utils)
 	tmp.sphere = data->sph;
 	tmp.cylinder = data->cyl;
 	tmp.plane = data->pl;
-	shadow_or_object_color(&tmp, utils, zb, &is_shadow);
+	shadow_or_object_color(&tmp, utils, c, &is_shadow);
 	utils->ray = tmp_ray;
 	if (!is_shadow)
 		calcul_light_value(utils);

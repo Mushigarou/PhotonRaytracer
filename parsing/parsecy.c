@@ -13,6 +13,18 @@ static void	add_cylinder_back(t_cylinder **head, t_cylinder *new)
 	tmp->next = new;
 }
 
+static void	input_checker(char **s)
+{
+	(ptrlen(s) != 6) && (ft_error("Error : parsecy.c\n", 1, 0), 0);
+	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) \
+		&& (ft_error("Error\n", 1, 0), 0);
+	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) \
+		&& (ft_error("Error\n", 1, 0), 0);
+	(ft_strchr(",", s[5][0]) || ft_strchr(",", s[5][ft_strlen(s[5]) - 1])) \
+		&& (ft_error("Error\n", 1, 0), 0);
+	return ;
+}
+
 void	parsecy(t_data *data, char **s)
 {
 	char		**coordp;
@@ -21,13 +33,7 @@ void	parsecy(t_data *data, char **s)
 	t_cylinder	*cy;
 
 	cy = gc(sizeof(t_cylinder), 1);
-	(ptrlen(s) != 6) && (ft_error("Error : parsecy.c\n", 1, 0), 0);
-	(ft_strchr(",", s[1][0]) || ft_strchr(",", s[1][ft_strlen(s[1]) - 1])) \
-		&& (ft_error("Error\n", 1, 0), 0);
-	(ft_strchr(",", s[2][0]) || ft_strchr(",", s[2][ft_strlen(s[2]) - 1])) \
-		&& (ft_error("Error\n", 1, 0), 0);
-	(ft_strchr(",", s[5][0]) || ft_strchr(",", s[5][ft_strlen(s[5]) - 1])) \
-		&& (ft_error("Error\n", 1, 0), 0);
+	input_checker(s);
 	coordp = ft_split(s[1], ",", 1);
 	(ptrlen(coordp) != 3) && (ft_error("Error : parsecy.c\n", 1, 0), 0);
 	vec = ft_split(s[2], ",", 1);

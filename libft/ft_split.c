@@ -22,7 +22,6 @@ static int	count_words(char *str, char *c)
 	return (count);
 }
 
-
 char	**ft_split(char const *s, char *c, int mode)
 {
 	char	**p;
@@ -39,12 +38,12 @@ char	**ft_split(char const *s, char *c, int mode)
 	{	
 		while (s[i] && ft_strchr(c, s[i]))
 		{
-			if(mode && ft_strchr(c, s[i]) && ft_strchr(c, s[i + 1]))
-				return(ft_error_split("Error : ft_split\n", 1, 0), NULL);
+			if (mode && ft_strchr(c, s[i]) && ft_strchr(c, s[i + 1]))
+				return (ft_error_split("Error : ft_split\n", 1, 0), NULL);
 			i++;
 		}
 		j = i;
-		while ( s[i] && !ft_strchr(c, s[i]) )
+		while (s[i] && !ft_strchr(c, s[i]))
 			i++;
 		p[l] = ft_substr(s, j, i - j);
 	}

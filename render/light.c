@@ -35,7 +35,7 @@ static void	shadow_or_object_color(t_tmp *tmp, t_utils *utils, t_color zb, \
 			}
 			tmp->cylinder = tmp->cylinder->next;
 		}
-		if (!tmp->sphere && !tmp->cylinder )
+		if (!tmp->sphere && !tmp->cylinder)
 			break ;
 	}
 	return ;
@@ -88,7 +88,7 @@ static void	calcul_light_value(t_utils *utils)
 		ambiant = vecxnum(utils->am->color, utils->am->range);
 		solution_data->color = colormix(solution_data->color, ambiant);
 	}
-    return ;
+	return ;
 }
 
 void	check_light_for_current_pixel(t_data *data, t_utils *utils)

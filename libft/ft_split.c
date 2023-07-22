@@ -34,7 +34,7 @@ char	**ft_split(char const *s, char *c, int mode)
 	l = -1;
 	if (!s)
 		return (NULL);
-	p = (char **)malloc(sizeof (char *) * (count_words((char *)s, c) + 1));
+	p = gc(sizeof (char *) * (count_words((char *)s, c) + 1), 1);
 	while (++l < count_words((char *)s, c))
 	{	
 		while (s[i] && ft_strchr(c, s[i]))

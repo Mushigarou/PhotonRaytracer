@@ -15,13 +15,15 @@ static void	init_mlx_window(t_mlx *mlx)
 /*							TODO LIST										  */
 /* ************************************************************************** */
 /*
-	// TODO	: Freeing the 3 double pointers?? parsecy(), parsepl()... coordv, ...
-	// TODO	: Freeing the pointer in the inner while?? rt_parsing()
 	// TODO : Elements which are defined by a capital letter can only be declared once in
-	// TODO : || **s == '#' leave it or remove it???? in parsobj()
 	// TODO : check overflow in atod
-the scene.
+	// TODO : 
 */
+
+void lk()
+{
+	system("leaks minirt");
+}
 
 int	main(int ac, char **av)
 {
@@ -31,6 +33,7 @@ int	main(int ac, char **av)
 	t_img	img;
 	t_mlx	mlx;
 
+	atexit(lk);
 	if (ac != 2)
 		ft_error("Invalid Arguments", 1, 0);
 	fd = checkfile(av[1]);
@@ -42,5 +45,6 @@ int	main(int ac, char **av)
 	mlx.img = &img;
 	init_mlx_window(&mlx);
 	rt_rendering(&data, &utils, &mlx);
+	gc(0, 0);
 	return (0);
 }

@@ -7,7 +7,7 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
-
+# include "../libgc/gc.h"
 typedef struct s_list
 {
 	void			*content;

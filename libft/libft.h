@@ -7,12 +7,14 @@
 # include <unistd.h>
 # include <string.h>
 # include "get_next_line.h"
+# include "../libgc/gc.h"
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

@@ -69,6 +69,6 @@ char	*get_next_line(int fd)
 	if (!hold)
 		return (NULL);
 	if (!*hold)
-		return(free(hold), hold = NULL, NULL);
+		return (free(hold), hold = NULL, NULL);
 	return (line = get_line(hold), hold = update_hold(hold), line);
 }

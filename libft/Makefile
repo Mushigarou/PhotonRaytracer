@@ -20,17 +20,28 @@ ft_lstmap.c ft_lstiter.c ft_lstclear.c ft_lstdelone.c get_next_line.c get_next_l
 
 OBJS = $(patsubst %, obj/%, $(SRCS:.c=.o))
 
+HBLK = '\e[1;90m'
+HRED = '\e[1;91m'
+HGRN = '\e[1;92m'
+HYEL = '\e[1;93m'
+HBLU = '\e[1;94m'
+HMAG = '\e[1;95m'
+HCYN = '\e[1;96m'
+HWHT = '\e[1;97m'
+NC ='\033[0m'
+
 all:$(NAME)
 
 obj/%.o:%.c libft.h get_next_line.h
-	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	@mkdir -p $(dir $@)
+	@ printf ${HYEL}"♠"${HWHT}" Compiled  ▻"${HYEL}" [%-40s]\r"${HWHT} $(notdir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME):$(OBJS)
 	ar cr $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) 
+	rm -rf obj
 
 fclean: clean
 	rm -f $(NAME)
@@ -38,3 +49,5 @@ fclean: clean
 re: fclean all
 
 .PHONY: clean fclean re all
+
+.SILENT : clean fclean re $(NAME)

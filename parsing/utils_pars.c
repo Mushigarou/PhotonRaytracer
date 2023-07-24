@@ -1,47 +1,53 @@
 #include "minirt.h"
 
-
 void	ft_error(char *error, int status, int opt)
 {
 	if (opt == 1)
 		perror(error);
 	if (opt == 0)
 		write(2, error, ft_strlen(error));
-	exit(status);
+	exit (status);
 }
 
-int ptrlen(char **ptr)
+int	ptrlen(char **ptr)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(ptr[i])
+	while (ptr[i])
 		i++;
-	return(i);
+	return (i);
+}
+
+static void	convert_left_part(char **s, double *res, int *sign)
+{
+	if (*s[0] == '-' || *s[0] == '+')
+	{
+		if (*s[0] == '-')
+			*sign *= -1.0;
+		(*s)++;
+	}
+	while (*s && **s >= '0' && **s <= '9')
+	{
+		*res = (*res * 10.0) + (**s - '0');
+		(*s)++;
+	}	
+	return ;
 }
 
 double	ft_atod(char *s)
 {
-	double	res = 0.0;
-	double	div = 1.0;
-	int		sign = 1.0;
+	double	res;
+	double	div;
+	int		sign;
 
-
+	res = 0.0;
+	div = 1.0;
+	sign = 1.0;
 	if (!s)
 		ft_error("Error: Invalid Input utils_pars.c\n", 1, 0);
-	if (s[0] == '-' || s[0] == '+')
-	{
-		if (s[0] == '-')
-			sign *= -1.0;
-		s++;
-	}
-	while (*s && *s >= '0' && *s <= '9')
-	{
-		res = (res * 10.0) + (*s - '0');
-		s++;
-		//check overflow
-	}	
-	if(*s == '.' && *(s + 1))
+	convert_left_part(&s, &res, &sign);
+	if (*s == '.' && *(s + 1))
 	{
 		s++;
 		while (*s && *s >= '0' && *s <= '9')
@@ -51,8 +57,7 @@ double	ft_atod(char *s)
 			s++;
 		}
 	}	
-	if(*s)
+	if (*s)
 		ft_error("Error: Invalid Input utils_pars.c\n", 1, 0);
 	return (res * sign);
-	
 }

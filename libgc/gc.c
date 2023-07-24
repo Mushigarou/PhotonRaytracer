@@ -10,6 +10,7 @@ void	*gc(size_t size, int param)
 		address = malloc(size);
 		if (!address)
 			return (ft_gcclear(&head), exit(1), NULL);
+		gcadd_front(&head, ft_gcnew(address));
 		return (address);
 	}
 	(!param) && (ft_gcclear(&head), exit(1), 0);

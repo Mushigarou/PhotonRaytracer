@@ -19,19 +19,26 @@ static void	ft_error(char *error, int status, int opt)
 	exit(status);
 }
 
+static void
+	init_vars(int *i, int *n, int *result, unsigned long long int *check)
+{
+	*i = 0;
+	*n = 1;
+	*result = 0;
+	*check = 0;
+	return ;
+}
+
 int	ft_atoi(const char *str, int mode)
 {
 	int						i;
 	int						n;
 	unsigned long long int	check;
-	int			result;
+	int						result;
 
-	if (!str) 
+	if (!str)
 		ft_error(ERROR_MSG_ATOI, 1, 0);
-	i = 0;
-	n = 1;
-	result = 0;
-	check = 0;
+	init_vars(&i, &n, &result, &check);
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')

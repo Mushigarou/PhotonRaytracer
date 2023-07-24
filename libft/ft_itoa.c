@@ -25,7 +25,7 @@ char	*ft_itoa(int n)
 		return (ft_strdup("0"));
 	i = count(n);
 	nb = n;
-	str = malloc(sizeof (char) * (i + 1));
+	str = gc(sizeof (char) * (i + 1), 0);
 	if (!str)
 		return (str);
 	str[i] = '\0';
